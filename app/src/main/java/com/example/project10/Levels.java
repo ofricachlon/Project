@@ -1,0 +1,88 @@
+package com.example.project10;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.Serializable;
+
+public class Levels extends AppCompatActivity implements View.OnClickListener {
+    Button[] btn = new Button[9];
+    SharedPreferences sp;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_levels);
+        sp=getSharedPreferences("level",0);
+
+        btn[0] = findViewById(R.id.btn1);
+        btn[1] = findViewById(R.id.btn2);
+        btn[2] = findViewById(R.id.btn3);
+        btn[3] = findViewById(R.id.btn4);
+        btn[4] = findViewById(R.id.btn5);
+        btn[5] = findViewById(R.id.btn6);
+        btn[6] = findViewById(R.id.btn7);
+        btn[7] = findViewById(R.id.btn8);
+        btn[8] = findViewById(R.id.btn9);
+        for (int i = 0; i < btn.length; i++) {
+            btn[i].setOnClickListener(this);
+
+        }
+        Intent intent=getIntent();
+        /*if(intent.getBooleanExtra("leveldone",false)){
+            btn[intent.getExtras().getInt("numleveldone")-1].setText("Done!");
+        }*/
+        int x;
+        for (int i=0;i<btn.length;i++){
+            x=i+1;
+            if(sp.getBoolean("win"+x,false)){
+                btn[i].setText("DONE!");
+            }
+        }
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        if(view==btn[0]){
+            Intent intent= new Intent(this,Level.class);
+            intent.putExtra("SongName","small worlds");
+            intent.putExtra("NumLevel",1);
+            intent.putExtra("Mediaplayer", R.raw.level1);
+            startActivity(intent);
+        }
+        if(view==btn[1]){
+            Intent intent= new Intent(this,Level.class);
+            intent.putExtra("SongName","billie jean");
+            intent.putExtra("NumLevel",2);
+            intent.putExtra("Mediaplayer", R.raw.level2);
+            startActivity(intent);
+        }
+
+    }
+
+    public boolean onCreateOptionMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
+
+        int id=item.getItemId();
+        if(id==R.id.help){
+            Intent intent=new Intent(this,settingsActivity.class);
+            startActivity(intent);
+        }
+        return true;
+        }
+    }
