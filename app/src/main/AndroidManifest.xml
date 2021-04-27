@@ -12,7 +12,8 @@
         <activity android:name=".Level"></activity>
         <activity android:name=".Levels" />
         <activity android:name=".settingsActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -23,7 +23,6 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
         sp=getSharedPreferences("level",0);
-
         btn[0] = findViewById(R.id.btn1);
         btn[1] = findViewById(R.id.btn2);
         btn[2] = findViewById(R.id.btn3);
@@ -70,7 +69,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    public boolean onCreateOptionMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
     }
