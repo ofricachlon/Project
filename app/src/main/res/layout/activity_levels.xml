@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ffff00"
                 android:padding="30sp"
-                android:text=" level1" />
+                android:text=" song1" />
 
             <Button
                 android:id="@+id/btn2"
@@ -41,7 +41,7 @@
 
                 android:backgroundTint="#ffff00"
                 android:padding="30sp"
-                android:text=" level2" />
+                android:text=" song2" />
 
             <Button
                 android:id="@+id/btn3"
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ffff00"
                 android:padding="30sp"
-                android:text=" level3" />
+                android:text=" song3" />
         </TableRow>
 
         <TableRow
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ffff00"
                 android:padding="30sp"
-                android:text=" level4" />
+                android:text="song4" />
 
             <Button
                 android:id="@+id/btn5"
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ffff00"
                 android:padding="30sp"
-                android:text="level5" />
+                android:text="song5" />
 
             <Button
                 android:id="@+id/btn6"
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ffff00"
                 android:padding="30sp"
-                android:text=" level6" />
+                android:text="song6" />
         </TableRow>
 
         <TableRow
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ffff00"
                 android:padding="30sp"
-                android:text=" level7" />
+                android:text="song7" />
 
             <Button
                 android:id="@+id/btn8"
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ffff00"
                 android:padding="30sp"
-                android:text=" level8" />
+                android:text="song8" />
 
             <Button
                 android:id="@+id/btn9"
@@ -107,7 +107,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#ffff00"
                 android:padding="30sp"
-                android:text=" level9" />
+                android:text="song9" />
         </TableRow>
 
     </TableLayout>
