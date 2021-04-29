@@ -5,6 +5,7 @@
 
     <item
         android:id="@+id/help"
+        android:icon="@drawable/ic_baseline_settings_24"
         android:orderInCategory="102"
         android:title="Help"
         app:showAsAction="never" />
@@ -13,5 +14,11 @@
         android:title="Stats"
         android:orderInCategory="103"
         app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/points"
+        android:title="points: "
+        android:orderInCategory="100"
+        app:showAsAction="always"
         />
 </menu>

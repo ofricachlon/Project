@@ -18,11 +18,14 @@ import java.io.Serializable;
 public class Levels extends AppCompatActivity implements View.OnClickListener {
     Button[] btn = new Button[9];
     SharedPreferences sp;
+    SharedPreferences score;
+    private MenuItem scoreview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
         sp=getSharedPreferences("level",0);
+        score=getSharedPreferences("score",0);
         btn[0] = findViewById(R.id.btn1);
         btn[1] = findViewById(R.id.btn2);
         btn[2] = findViewById(R.id.btn3);
@@ -36,6 +39,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             btn[i].setOnClickListener(this);
 
         }
+
         Intent intent=getIntent();
         /*if(intent.getBooleanExtra("leveldone",false)){
             btn[intent.getExtras().getInt("numleveldone")-1].setText("Done!");
@@ -58,6 +62,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             intent.putExtra("NumLevel",1);
             intent.putExtra("Mediaplayer", R.raw.level1);
             startActivity(intent);
+            finish();
         }
         if(view==btn[1]){
             Intent intent= new Intent(this,Level.class);
@@ -65,6 +70,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             intent.putExtra("NumLevel",2);
             intent.putExtra("Mediaplayer", R.raw.level2);
             startActivity(intent);
+            finish();
         }
 
     }
@@ -81,7 +87,11 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         if(id==R.id.help){
             Intent intent=new Intent(this,settingsActivity.class);
             startActivity(intent);
+            finish();
+        }
+        if(id==R.id.points){
+            item.setTitle("points: "+score.getInt("score",0));
         }
         return true;
-        }
     }
+}

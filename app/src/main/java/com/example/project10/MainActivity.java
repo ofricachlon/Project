@@ -28,10 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (settingsbtn==view){
             Intent intent=new Intent(this,settingsActivity.class);
             startActivity(intent);
+            finish();
         }
         if(Playbtn==view){
             Intent intent=new Intent(this,Levels.class);
             startActivity(intent);
+            finish();
         }
     }
     public boolean onCreateOptionMenu(Menu menu){

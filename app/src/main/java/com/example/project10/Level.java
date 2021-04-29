@@ -15,7 +15,9 @@ import android.widget.Toast;
 
 public class Level extends AppCompatActivity implements View.OnClickListener {
     SharedPreferences sp;
-    private int times=0;
+    SharedPreferences score;
+    private int sumpoints;
+    private int times;
     private String SongName;
     private Button back;
     private int NumLevel;
@@ -23,16 +25,18 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
     private EditText answer;
     private Button submit;
     private Button play;
-    private boolean complete;
+    private boolean complete=false;
     private TextView textlevel;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        times=0;
         setContentView(R.layout.activity_level);
         sp=getSharedPreferences("level",0);//כאן עצרתי https://appschool.co.il/assets/moxifile/books/android/android5.pdf עמ' 5
-        complete=false;
+        score=getSharedPreferences("score",0);
+        sumpoints=score.getInt("score",0);
         back=(Button)findViewById(R.id.backToLevels);
         play=(Button)findViewById(R.id.playmusic);
         textlevel=findViewById(R.id.textlevel);
@@ -61,6 +65,34 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
                 Toast toast = Toast.makeText(this, "Good Job!", Toast.LENGTH_LONG);
                 toast.show();
                 Intent intent= new Intent(this,Levels.class);
+                if(sp.getBoolean("win"+NumLevel,false)==false){//אם הוא לא עבר עדיין את השלב
+                    if(times==0){
+                        SharedPreferences.Editor scoreedit=score.edit();
+                        scoreedit.putInt("score",sumpoints+1000);
+                        scoreedit.commit();
+                    }
+                    else if (times<=2){
+                        SharedPreferences.Editor scoreedit=score.edit();
+                        scoreedit.putInt("score",sumpoints+700);
+                        scoreedit.commit();
+                    }
+                    else if(times<=4){
+                        SharedPreferences.Editor scoreedit=score.edit();
+                        scoreedit.putInt("score",sumpoints+500);
+                        scoreedit.commit();
+                    }
+                    else if (times<=7){
+                        SharedPreferences.Editor scoreedit=score.edit();
+                        scoreedit.putInt("score",sumpoints+300);
+                        scoreedit.commit();
+                    }
+                    else{
+                        SharedPreferences.Editor scoreedit=score.edit();
+                        scoreedit.putInt("score",sumpoints+100);
+                        scoreedit.commit();
+                    }
+
+                }
                 complete=true;
                 SharedPreferences.Editor editor=sp.edit();
                 editor.putBoolean("win"+NumLevel,complete);
@@ -69,6 +101,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
                 intent.putExtra("numleveldone",NumLevel);
                 intent.putExtra("chance",times);
                 startActivity(intent);
+                finish();
             }
             else{
                 Toast toast = Toast.makeText(this, "Sorry thats wrong", Toast.LENGTH_LONG);
@@ -79,6 +112,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
      if(back==view){
          Intent intent=new Intent(this,Levels.class);
          startActivity(intent);
+         finish();
      }
     }
 }
