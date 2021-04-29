@@ -1,7 +1,9 @@
 package com.example.project10;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -93,5 +95,16 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             item.setTitle("points: "+score.getInt("score",0));
         }
         return true;
+    }
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Levels.this.finish();
+                    }
+                }).setNegativeButton("No", null).show();
     }
 }

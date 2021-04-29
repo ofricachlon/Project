@@ -1,7 +1,9 @@
 package com.example.project10;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -60,6 +62,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
                 Player.start();
             }
         }
+
      if(submit==view){
             if(SongName.equals(answer.getText().toString().toLowerCase())){
                 Toast toast = Toast.makeText(this, "Good Job!", Toast.LENGTH_LONG);
@@ -114,5 +117,16 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
          startActivity(intent);
          finish();
      }
+    }
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Level.this.finish();
+                    }
+                }).setNegativeButton("No", null).show();
     }
 }
