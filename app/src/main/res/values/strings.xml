@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Project1.0</string>
+    <string name="app_name">MusicQuiz</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
