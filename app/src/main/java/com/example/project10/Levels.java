@@ -41,6 +41,8 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             btn[i].setOnClickListener(this);
 
         }
+        scoreview=findViewById(R.id.points);
+
 
         Intent intent=getIntent();
         /*if(intent.getBooleanExtra("leveldone",false)){
@@ -92,7 +94,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             finish();
         }
         if(id==R.id.points){
-            item.setTitle("points: "+score.getInt("score",0));
+          item.setTitle("points: "+score.getInt("score",0));
         }
         return true;
     }

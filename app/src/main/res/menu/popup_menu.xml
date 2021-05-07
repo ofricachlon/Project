@@ -3,9 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/help"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:orderInCategory="102"
-        android:title="Help"
-        app:showAsAction="always" />
+        android:id="@+id/firstchar"
+        android:orderInCategory="2"
+        android:title="First charecter - 100"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/lengthofsong"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom"
+        android:title="Song length word- 50" />
+    <item
+        android:id="@+id/Continuethesong"
+        android:orderInCategory="3"
+        app:showAsAction="ifRoom"
+        android:title="Continue more 3 sec- 200"
+        />
 </menu>

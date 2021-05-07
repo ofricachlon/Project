@@ -9,13 +9,15 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Level extends AppCompatActivity implements View.OnClickListener {
+public class Level extends AppCompatActivity implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
     SharedPreferences sp;
     SharedPreferences score;
     private int sumpoints;
@@ -29,6 +31,8 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
     private Button play;
     private boolean complete=false;
     private TextView textlevel;
+    private Button clues;
+    private TextView clueshow;
 
 
     @Override
@@ -44,6 +48,8 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
         textlevel=findViewById(R.id.textlevel);
         answer=findViewById(R.id.answer);
         submit=findViewById(R.id.submit);
+        clues=findViewById(R.id.clues_popup);
+        clueshow=findViewById(R.id.clues_textview);
         Intent intent=getIntent();
         Bundle bundle = getIntent().getExtras();
         int sound = bundle.getInt("Mediaplayer");
@@ -51,8 +57,11 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
         NumLevel=intent.getExtras().getInt("NumLevel");
         play.setOnClickListener(this);
         submit.setOnClickListener(this);
+        back.setOnClickListener(this);
         SongName=intent.getStringExtra("SongName");
-        textlevel.setText("Level: "+NumLevel);
+        clues.setOnClickListener(this);
+
+        textlevel.setText("Song: "+NumLevel);
     }
 
     @Override
@@ -61,6 +70,11 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
             if(!Player.isPlaying()){
                 Player.start();
             }
+        }
+        if(back==view){
+            Intent intent=new Intent(this,Levels.class);
+            startActivity(intent);
+            finish();
         }
 
      if(submit==view){
@@ -112,21 +126,34 @@ public class Level extends AppCompatActivity implements View.OnClickListener {
                 times++;
             }
        }
-     if(back==view){
-         Intent intent=new Intent(this,Levels.class);
-         startActivity(intent);
-         finish();
+     if (clues==view){
+         PopupMenu popup = new PopupMenu(this, view);
+         popup.setOnMenuItemClickListener(this);
+         popup.inflate(R.menu.popup_menu);
+         popup.show();
      }
     }
+
+
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setMessage("Are you sure you want to exit?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Level.this.finish();
-                    }
+        new AlertDialog.Builder(this).setMessage("Are you sure you want to exit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int id) { Level.this.finish(); }
                 }).setNegativeButton("No", null).show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        super.onOptionsItemSelected(menuItem);
+
+        int id=menuItem.getItemId();
+        if(id==R.id.firstchar){
+            clueshow.setText("First character is: '" +SongName.charAt(0)+"'");
+            SharedPreferences.Editor scoreedit=score.edit();
+            scoreedit.putInt("score",sumpoints-100);
+            scoreedit.commit();
+        }
+        return true;
     }
 }

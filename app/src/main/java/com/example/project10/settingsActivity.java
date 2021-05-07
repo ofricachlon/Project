@@ -29,13 +29,15 @@ public class settingsActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        if(horaot.getVisibility()==View.GONE)
-        {
-            (findViewById(R.id.horaot)).setVisibility(View.VISIBLE);
-        }
-        else
+        if(howtoplay==view){
+            if(horaot.getVisibility()==View.GONE)
             {
-            horaot.setVisibility(view.GONE);
+                (findViewById(R.id.horaot)).setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                horaot.setVisibility(view.GONE);
+            }
         }
         if(view==backbtn){
             Intent intent= new Intent(this,MainActivity.class);
