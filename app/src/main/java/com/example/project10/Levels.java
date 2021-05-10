@@ -42,7 +42,8 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
 
         }
         scoreview=findViewById(R.id.points);
-
+     /*   String s="points: "+score.getInt("score",0);  לא עובד משום מה
+        scoreview.setTitle(s);*/
 
         Intent intent=getIntent();
         /*if(intent.getBooleanExtra("leveldone",false)){

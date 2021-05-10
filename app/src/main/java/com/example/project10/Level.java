@@ -229,10 +229,18 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         int id=menuItem.getItemId();
         if(id==R.id.firstchar){
             if(score.getInt("score",0)>=100){
-                clueshow.setText("First character is: '" +SongName.charAt(0)+"'");
-                SharedPreferences.Editor scoreedit=score.edit();
-                scoreedit.putInt("score",sumpoints-100);
-                scoreedit.commit();
+                new AlertDialog.Builder(this).setMessage("The cost for this clue is 100").setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        clueshow.setText("First character is: '" +SongName.charAt(0)+"'");
+                        SharedPreferences.Editor scoreedit=score.edit();
+                        scoreedit.putInt("score",sumpoints-100);
+                        scoreedit.commit();
+
+                    }
+                }).setNegativeButton("No, i dont need that", null).show();
+
             }
             else{
                 Toast toast=Toast.makeText(this,"You do not have enough points to do this",Toast.LENGTH_LONG);
@@ -251,7 +259,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
                     count++;
                 }
                 if(count>0){
-                    s+=count;
+                    s+=count-1;
                 }
                 s+=")";
                 clueshow.setText(s);
