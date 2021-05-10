@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
+        app:layout_constraintVertical_bias="0.23" />
 
     <Button
         android:layout_width="52dp"
@@ -36,9 +36,22 @@
         android:id="@+id/horaot"
         android:layout_width="262dp"
         android:layout_height="298dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="120dp"
         android:text="תפעילו את הנגו מוזיקה ורשמו את שם השיר בתיבה"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/howtoplaybtn" />
+
+    <Button
+        android:id="@+id/Sheresettings"
+        android:layout_width="72dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="36dp"
+        android:background="@drawable/shareic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horaot"
+        app:layout_constraintVertical_bias="0.752" />
 </androidx.constraintlayout.widget.ConstraintLayout>

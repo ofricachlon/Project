@@ -94,17 +94,17 @@
         app:layout_constraintVertical_bias="0.802" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/shereBtn"
+        android:layout_width="59dp"
+        android:layout_height="41dp"
         android:layout_marginBottom="16dp"
-        android:text="Button"
+        android:background="@drawable/shareic"
         app:layout_constraintBottom_toTopOf="@+id/textlevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintVertical_bias="0.902" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

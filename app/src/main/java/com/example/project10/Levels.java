@@ -76,6 +76,14 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             startActivity(intent);
             finish();
         }
+        if(view==btn[2]){
+            Intent intent= new Intent(this,Level.class);
+            intent.putExtra("SongName","billie jean");
+            intent.putExtra("NumLevel",2);
+            intent.putExtra("Mediaplayer", R.raw.level2);
+            startActivity(intent);
+            finish();
+        }
 
     }
 

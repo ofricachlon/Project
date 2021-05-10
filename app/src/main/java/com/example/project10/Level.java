@@ -33,6 +33,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
     private TextView textlevel;
     private Button clues;
     private TextView clueshow;
+    private Button Sherebtn;
 
 
     @Override
@@ -50,6 +51,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         submit=findViewById(R.id.submit);
         clues=findViewById(R.id.clues_popup);
         clueshow=findViewById(R.id.clues_textview);
+        Sherebtn=findViewById(R.id.shereBtn);
         Intent intent=getIntent();
         Bundle bundle = getIntent().getExtras();
         int sound = bundle.getInt("Mediaplayer");
@@ -60,6 +62,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         back.setOnClickListener(this);
         SongName=intent.getStringExtra("SongName");
         clues.setOnClickListener(this);
+        Sherebtn.setOnClickListener(this);
 
         textlevel.setText("Song: "+NumLevel);
     }
@@ -75,6 +78,15 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
             Intent intent=new Intent(this,Levels.class);
             startActivity(intent);
             finish();
+        }
+        if(Sherebtn==view){
+            Intent intent=new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            String ShereBody="Hey, im stuck in song "+NumLevel +" in the game MusicQuiz. can you help me?";
+            String Sheresub="MusicQuiz help";
+            intent.putExtra(Intent.EXTRA_SUBJECT,Sheresub);
+            intent.putExtra(Intent.EXTRA_TEXT,ShereBody);
+            startActivity(Intent.createChooser(intent,"Shere using"));
         }
 
      if(submit==view){

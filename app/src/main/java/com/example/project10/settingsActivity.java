@@ -15,6 +15,7 @@ public class settingsActivity extends AppCompatActivity implements View.OnClickL
     Button backbtn;
     Button howtoplay;
     TextView horaot;
+    Button Share;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,8 @@ public class settingsActivity extends AppCompatActivity implements View.OnClickL
         horaot=(TextView)findViewById(R.id.horaot);
         horaot.setVisibility(View.GONE);
         backbtn=(Button)findViewById(R.id.backBtn);
+        Share=findViewById(R.id.Sheresettings);
+        Share.setOnClickListener(this);
         backbtn.setOnClickListener(this);
         howtoplay.setOnClickListener(this);
     }
@@ -42,6 +45,15 @@ public class settingsActivity extends AppCompatActivity implements View.OnClickL
         if(view==backbtn){
             Intent intent= new Intent(this,MainActivity.class);
             startActivity(intent);
+        }
+        if (Share==view){
+            Intent intent=new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            String ShereBody="Hi! Look at a new game I found. His name is MusicQuiz I recommend you! ";
+            String Sheresub="MusicQuiz";
+            intent.putExtra(Intent.EXTRA_SUBJECT,Sheresub);
+            intent.putExtra(Intent.EXTRA_TEXT,ShereBody);
+            startActivity(Intent.createChooser(intent,"Shere"));
         }
     }
     @Override
