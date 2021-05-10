@@ -20,12 +20,13 @@ import android.widget.Toast;
 public class Level extends AppCompatActivity implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
     SharedPreferences sp;
     SharedPreferences score;
+    private boolean[] usetheclue;
     private int sumpoints;
     private int times;
     private String SongName;
     private Button back;
     private int NumLevel;
-    private MediaPlayer Player;
+    private MediaPlayer[] Player;
     private EditText answer;
     private Button submit;
     private Button play;
@@ -33,8 +34,9 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
     private TextView textlevel;
     private Button clues;
     private TextView clueshow;
-    private Button Sherebtn;
-
+    private Button Sharebtn;
+    private Button playP2;
+    private Button playP3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,9 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         sp=getSharedPreferences("level",0);//כאן עצרתי https://appschool.co.il/assets/moxifile/books/android/android5.pdf עמ' 5
         score=getSharedPreferences("score",0);
         sumpoints=score.getInt("score",0);
+        usetheclue=new boolean[2];
+        usetheclue[0]=false;
+        usetheclue[1]=false;
         back=(Button)findViewById(R.id.backToLevels);
         play=(Button)findViewById(R.id.playmusic);
         textlevel=findViewById(R.id.textlevel);
@@ -51,18 +56,29 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         submit=findViewById(R.id.submit);
         clues=findViewById(R.id.clues_popup);
         clueshow=findViewById(R.id.clues_textview);
-        Sherebtn=findViewById(R.id.shereBtn);
+        Sharebtn=findViewById(R.id.shereBtn);
+        Player=new MediaPlayer[3];
+        playP2=findViewById(R.id.Playpart2);
+        playP3=findViewById(R.id.Playpart3);
+
         Intent intent=getIntent();
         Bundle bundle = getIntent().getExtras();
-        int sound = bundle.getInt("Mediaplayer");
-        Player = MediaPlayer.create(this, sound);
+        int sound1 = bundle.getInt("Mediaplayer1");
+        int sound2=bundle.getInt("Mediaplayer2");
+        int sound3=bundle.getInt("Mediaplayer3");
+
+        Player[0] = MediaPlayer.create(this, sound1);
+        Player[1] = MediaPlayer.create(this, sound2);
+        Player[2] = MediaPlayer.create(this, sound3);
         NumLevel=intent.getExtras().getInt("NumLevel");
         play.setOnClickListener(this);
         submit.setOnClickListener(this);
         back.setOnClickListener(this);
         SongName=intent.getStringExtra("SongName");
         clues.setOnClickListener(this);
-        Sherebtn.setOnClickListener(this);
+        Sharebtn.setOnClickListener(this);
+        playP2.setOnClickListener(this);
+        playP3.setOnClickListener(this);
 
         textlevel.setText("Song: "+NumLevel);
     }
@@ -70,8 +86,8 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
     @Override
     public void onClick(View view) {
         if(view==play){
-            if(!Player.isPlaying()){
-                Player.start();
+            if(!Player[0].isPlaying()){
+                Player[0].start();
             }
         }
         if(back==view){
@@ -79,14 +95,61 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
             startActivity(intent);
             finish();
         }
-        if(Sherebtn==view){
+        if(Sharebtn==view){
             Intent intent=new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             String ShereBody="Hey, im stuck in song "+NumLevel +" in the game MusicQuiz. can you help me?";
             String Sheresub="MusicQuiz help";
             intent.putExtra(Intent.EXTRA_SUBJECT,Sheresub);
             intent.putExtra(Intent.EXTRA_TEXT,ShereBody);
-            startActivity(Intent.createChooser(intent,"Shere using"));
+            startActivity(Intent.createChooser(intent,"Share using"));
+        }
+        if (playP2==view){
+            if(score.getInt("score",0)>=150){
+                if(!Player[0].isPlaying()||!Player[1].isPlaying()||!Player[2].isPlaying())
+                {
+                    if(usetheclue[0]){
+                        Player[1].start();
+                    }
+                    else {
+                        new AlertDialog.Builder(this).setMessage("the cost for this clue is 150").setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int id)
+                            {
+                                SharedPreferences.Editor scoreedit=score.edit();
+                                scoreedit.putInt("score",sumpoints-150);
+                                scoreedit.commit();
+                                Player[1].start();
+                                usetheclue[0]=true;
+                                findViewById(R.id.Playpart3).setVisibility(View.VISIBLE);
+                            }
+                        }).setNegativeButton("No, i dont need that", null).show();
+                    }
+                }
+            }
+        }
+        if(playP3==view){
+            if(score.getInt("score",0)>=50){
+                if(!Player[0].isPlaying()||!Player[1].isPlaying()||!Player[2].isPlaying())
+                {
+                    if(usetheclue[1]){
+                        Player[2].start();
+                    }
+                    else {
+                        new AlertDialog.Builder(this).setMessage("The cost for this clue is 50").setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int id)
+                            {
+                                SharedPreferences.Editor scoreedit=score.edit();
+                                scoreedit.putInt("score",sumpoints-50);
+                                scoreedit.commit();
+                                Player[2].start();
+                                usetheclue[1]=true;
+                            }
+                        }).setNegativeButton("No, i dont need that", null).show();
+                    }
+                }
+            }
         }
 
      if(submit==view){
@@ -151,7 +214,10 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
     public void onBackPressed() {
         new AlertDialog.Builder(this).setMessage("Are you sure you want to exit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener()
                 {
-                    public void onClick(DialogInterface dialog, int id) { Level.this.finish(); }
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        Level.this.finish();
+                    }
                 }).setNegativeButton("No", null).show();
     }
 
@@ -194,6 +260,10 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
                 Toast toast=Toast.makeText(this,"You do not have enough points to do this",Toast.LENGTH_LONG);
                 toast.show();
             }
+        }
+        if(id==R.id.Continuethesong)
+        {
+            findViewById(R.id.Playpart2).setVisibility(View.VISIBLE);
         }
         return true;
     }

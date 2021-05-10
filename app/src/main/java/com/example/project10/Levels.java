@@ -64,7 +64,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","small worlds");
             intent.putExtra("NumLevel",1);
-            intent.putExtra("Mediaplayer", R.raw.level1);
+            intent.putExtra("Mediaplayer1", R.raw.level1);
             startActivity(intent);
             finish();
         }
@@ -72,15 +72,17 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","billie jean");
             intent.putExtra("NumLevel",2);
-            intent.putExtra("Mediaplayer", R.raw.level2);
+            intent.putExtra("Mediaplayer1", R.raw.level2);
             startActivity(intent);
             finish();
         }
         if(view==btn[2]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","billie jean");
-            intent.putExtra("NumLevel",2);
-            intent.putExtra("Mediaplayer", R.raw.level2);
+            intent.putExtra("SongName","עולם משוגע");
+            intent.putExtra("NumLevel",3);
+            intent.putExtra("Mediaplayer1", R.raw.song3p1);
+            intent.putExtra("Mediaplayer2", R.raw.song3p2);
+            intent.putExtra("Mediaplayer3", R.raw.song3p3);
             startActivity(intent);
             finish();
         }

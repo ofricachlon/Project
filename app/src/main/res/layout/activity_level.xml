@@ -34,13 +34,14 @@
         android:id="@+id/playmusic"
         android:layout_width="144dp"
         android:layout_height="111dp"
+        android:layout_marginBottom="144dp"
         android:text="play"
         app:layout_constraintBottom_toTopOf="@+id/answer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
+        app:layout_constraintVertical_bias="0.948" />
 
     <TextView
         android:id="@+id/textlevel"
@@ -105,6 +106,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.902" />
+
+    <Button
+        android:id="@+id/Playpart2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="part 2"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toEndOf="@+id/playmusic"
+        app:layout_constraintTop_toBottomOf="@+id/textlevel" />
+
+    <Button
+        android:id="@+id/Playpart3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="part 3"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/clues_textview"
+        app:layout_constraintStart_toEndOf="@+id/playmusic"
+        app:layout_constraintTop_toBottomOf="@+id/Playpart2"
+        app:layout_constraintVertical_bias="0.24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
