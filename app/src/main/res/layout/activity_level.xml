@@ -44,15 +44,16 @@
 
     <TextView
         android:id="@+id/textlevel"
-        android:layout_width="277dp"
-        android:layout_height="114dp"
+        android:layout_width="266dp"
+        android:layout_height="88dp"
         android:text="Song: "
         android:textSize="55dp"
         app:layout_constraintBottom_toTopOf="@+id/playmusic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.581" />
+        app:layout_constraintVertical_bias="0.695" />
 
     <Button
         android:id="@+id/backToLevels"
@@ -81,8 +82,8 @@
 
     <TextView
         android:id="@+id/clues_textview"
-        android:layout_width="203dp"
-        android:layout_height="67dp"
+        android:layout_width="239dp"
+        android:layout_height="103dp"
         android:text=""
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/answer"
@@ -91,6 +92,19 @@
         app:layout_constraintStart_toEndOf="@+id/clues_popup"
         app:layout_constraintTop_toBottomOf="@+id/playmusic"
         app:layout_constraintVertical_bias="0.802" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/textlevel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -147,12 +147,41 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
     public boolean onMenuItemClick(MenuItem menuItem) {
         super.onOptionsItemSelected(menuItem);
 
+
         int id=menuItem.getItemId();
         if(id==R.id.firstchar){
-            clueshow.setText("First character is: '" +SongName.charAt(0)+"'");
-            SharedPreferences.Editor scoreedit=score.edit();
-            scoreedit.putInt("score",sumpoints-100);
-            scoreedit.commit();
+            if(score.getInt("score",0)>=100){
+                clueshow.setText("First character is: '" +SongName.charAt(0)+"'");
+                SharedPreferences.Editor scoreedit=score.edit();
+                scoreedit.putInt("score",sumpoints-100);
+                scoreedit.commit();
+            }
+            else{
+                Toast toast=Toast.makeText(this,"You do not have enough points to do this",Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
+        if(id==R.id.lengthofsong){
+            int count=0;
+            String s="(";
+            if (score.getInt("score",0)>=50){
+                for (int i=0;i<SongName.length();i++){
+                    if (SongName.charAt(i)==' '){
+                        s+=count +",";
+                        count=0;
+                    }
+                    count++;
+                }
+                if(count>0){
+                    s+=count;
+                }
+                s+=")";
+                clueshow.setText(s);
+            }
+            else{
+                Toast toast=Toast.makeText(this,"You do not have enough points to do this",Toast.LENGTH_LONG);
+                toast.show();
+            }
         }
         return true;
     }
