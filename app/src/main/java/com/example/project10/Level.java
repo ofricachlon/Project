@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +38,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
     private Button Sharebtn;
     private Button playP2;
     private Button playP3;
+    private MenuItem scoreview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -272,6 +274,28 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         if(id==R.id.Continuethesong)
         {
             findViewById(R.id.Playpart2).setVisibility(View.VISIBLE);
+        }
+        return true;
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        scoreview=menu.findItem(R.id.points);
+        String s="points: "+score.getInt("score",0);
+        scoreview.setTitle(s);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
+
+        int id=item.getItemId();
+        if(id==R.id.help){
+            Intent intent=new Intent(this,settingsActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        if(id==R.id.points){
+          item.setTitle("points: "+score.getInt("score",0));
         }
         return true;
     }

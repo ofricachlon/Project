@@ -41,11 +41,10 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             btn[i].setOnClickListener(this);
 
         }
-        scoreview=findViewById(R.id.points);
-     /*   String s="points: "+score.getInt("score",0);  לא עובד משום מה
-        scoreview.setTitle(s);*/
+
 
         Intent intent=getIntent();
+
         /*if(intent.getBooleanExtra("leveldone",false)){
             btn[intent.getExtras().getInt("numleveldone")-1].setText("Done!");
         }*/
@@ -92,6 +91,9 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main,menu);
+        scoreview=menu.findItem(R.id.points);
+        String s="points: "+score.getInt("score",0);
+        scoreview.setTitle(s);
         return true;
     }
 
@@ -104,9 +106,9 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             startActivity(intent);
             finish();
         }
-        if(id==R.id.points){
-          item.setTitle("points: "+score.getInt("score",0));
-        }
+//        if(id==R.id.points){
+//          item.setTitle("points: "+score.getInt("score",0));
+//        }
         return true;
     }
     @Override
