@@ -118,6 +118,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
                         {
                             public void onClick(DialogInterface dialog, int id)
                             {
+                                sumpoints=score.getInt("score",0);
                                 SharedPreferences.Editor scoreedit=score.edit();
                                 scoreedit.putInt("score",sumpoints-150);
                                 scoreedit.commit();
@@ -142,6 +143,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
                         {
                             public void onClick(DialogInterface dialog, int id)
                             {
+                                sumpoints=score.getInt("score",0);
                                 SharedPreferences.Editor scoreedit=score.edit();
                                 scoreedit.putInt("score",sumpoints-50);
                                 scoreedit.commit();
@@ -224,7 +226,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
     }
 
     @Override
-    public boolean onMenuItemClick(MenuItem menuItem) {
+    public boolean onMenuItemClick(final MenuItem menuItem) {
         super.onOptionsItemSelected(menuItem);
 
 
@@ -235,6 +237,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
                 {
                     public void onClick(DialogInterface dialog, int id)
                     {
+                        sumpoints=score.getInt("score",0);
                         clueshow.setText("First character is: '" +SongName.charAt(0)+"'");
                         SharedPreferences.Editor scoreedit=score.edit();
                         scoreedit.putInt("score",sumpoints-100);
@@ -250,27 +253,54 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
             }
         }
         if(id==R.id.lengthofsong){
-            int count=0;
-            String s="(";
-            if (score.getInt("score",0)>=50){
-                for (int i=0;i<SongName.length();i++){
-                    if (SongName.charAt(i)==' '){
-                        s+=count +",";
-                        count=0;
+            if(score.getInt("score",0)>=50){
+                new AlertDialog.Builder(this).setMessage("The cost for this clue is 50").setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int id) {
+                        int count = 0;
+                        int countspace=0;
+                        String s = "(";
+                        if (score.getInt("score", 0) >= 50) {
+                            for (int i = 0; i < SongName.length(); i++) {
+                                if (SongName.charAt(i) == ' ') {
+                                    s += count + ",";
+                                    count = 0;
+                                }
+                                count++;
+                            }
+                            if (count > 0) {
+                                s += count - 1;
+                            }
+                            for(int i=0; i<s.length();i++){
+                                if(s.charAt(i)==','){
+                                    countspace++;
+                                }
+                            }
+                            if (countspace==0){
+                                s="("+SongName.length();
+                            }
+                            s += ")";
+                            clueshow.setText(s);
+                            sumpoints=score.getInt("score",0);
+                            SharedPreferences.Editor scoreedit = score.edit();
+                            scoreedit.putInt("score", sumpoints - 50);
+                            scoreedit.commit();
+
+                        }
                     }
-                    count++;
-                }
-                if(count>0){
-                    s+=count-1;
-                }
-                s+=")";
-                clueshow.setText(s);
+                }).setNegativeButton("No, i dont need that", null).show();
             }
             else{
                 Toast toast=Toast.makeText(this,"You do not have enough points to do this",Toast.LENGTH_LONG);
                 toast.show();
+              }
+
             }
-        }
+
+
+
+
+
         if(id==R.id.Continuethesong)
         {
             findViewById(R.id.Playpart2).setVisibility(View.VISIBLE);
@@ -284,6 +314,8 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         scoreview.setTitle(s);
         return true;
     }
+
+
 
     public boolean onOptionsItemSelected(MenuItem item){
         super.onOptionsItemSelected(item);

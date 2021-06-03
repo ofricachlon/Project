@@ -62,17 +62,21 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View view) {
         if(view==btn[0]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","small worlds");
+            intent.putExtra("SongName","פרפר");
             intent.putExtra("NumLevel",1);
-            intent.putExtra("Mediaplayer1", R.raw.level1);
+            intent.putExtra("Mediaplayer1", R.raw.song1p1);
+            intent.putExtra("Mediaplayer2", R.raw.song1p2);
+            intent.putExtra("Mediaplayer3", R.raw.song1p3);
             startActivity(intent);
             finish();
         }
         if(view==btn[1]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","billie jean");
+            intent.putExtra("SongName","בין הבודדים");
             intent.putExtra("NumLevel",2);
-            intent.putExtra("Mediaplayer1", R.raw.level2);
+            intent.putExtra("Mediaplayer1", R.raw.song2p1);
+            intent.putExtra("Mediaplayer2", R.raw.song2p2);
+            intent.putExtra("Mediaplayer3", R.raw.song2p3);
             startActivity(intent);
             finish();
         }
