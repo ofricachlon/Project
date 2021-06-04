@@ -160,7 +160,14 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
             if(SongName.equals(answer.getText().toString().toLowerCase())){
                 Toast toast = Toast.makeText(this, "Good Job!", Toast.LENGTH_LONG);
                 toast.show();
-                Intent intent= new Intent(this,Levels.class);
+                Intent intent;
+                if(NumLevel>9){
+                     intent= new Intent(this,LevelsP2.class);
+                }
+                else {
+                    intent = new Intent(this, Levels.class);
+                }
+
                 if(sp.getBoolean("win"+NumLevel,false)==false){//אם הוא לא עבר עדיין את השלב
                     if(times==0){
                         SharedPreferences.Editor scoreedit=score.edit();
@@ -194,7 +201,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
                 editor.putBoolean("win"+NumLevel,complete);
                 editor.commit();
                 intent.putExtra("leveldone",complete);
-                intent.putExtra("numleveldone",NumLevel);
+                intent.putExtra("numleveldone",NumLevel);///
                 intent.putExtra("chance",times);
                 startActivity(intent);
                 finish();

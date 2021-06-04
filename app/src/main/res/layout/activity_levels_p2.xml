@@ -25,7 +25,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btn1"
+                android:id="@+id/btn10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#E87F5E"
@@ -33,7 +33,7 @@
                 android:text=" song10" />
 
             <Button
-                android:id="@+id/btn2"
+                android:id="@+id/btn11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -42,7 +42,7 @@
                 android:text=" song11" />
 
             <Button
-                android:id="@+id/btn3"
+                android:id="@+id/btn12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#E87F5E"
@@ -55,7 +55,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btn4"
+                android:id="@+id/btn13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#E87F5E"
@@ -63,7 +63,7 @@
                 android:text="song13" />
 
             <Button
-                android:id="@+id/btn5"
+                android:id="@+id/btn14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#E87F5E"
@@ -71,7 +71,7 @@
                 android:text="song14" />
 
             <Button
-                android:id="@+id/btn6"
+                android:id="@+id/btn15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#E87F5E"
@@ -84,7 +84,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btn7"
+                android:id="@+id/btn16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#E87F5E"
@@ -92,7 +92,7 @@
                 android:text="song16" />
 
             <Button
-                android:id="@+id/btn8"
+                android:id="@+id/btn17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#E87F5E"
@@ -100,7 +100,7 @@
                 android:text="song17" />
 
             <Button
-                android:id="@+id/btn9"
+                android:id="@+id/btn18"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:backgroundTint="#E87F5E"
@@ -150,9 +150,10 @@
         app:srcCompat="@drawable/tav" />
 
     <Button
-        android:id="@+id/ToPage2"
+        android:id="@+id/ToPage3"
         android:layout_width="56dp"
         android:layout_height="49dp"
+
         android:background="@drawable/arrow_forward"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

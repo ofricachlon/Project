@@ -48,9 +48,6 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
 
         Intent intent=getIntent();
 
-        /*if(intent.getBooleanExtra("leveldone",false)){
-            btn[intent.getExtras().getInt("numleveldone")-1].setText("Done!");
-        }*/
         int x;
         for (int i=0;i<btn.length;i++){
             x=i+1;
@@ -145,7 +142,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         }
         if(view==btn[8]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","להתעורר ");
+            intent.putExtra("SongName","להתעורר");
             intent.putExtra("NumLevel",9);
             intent.putExtra("Mediaplayer1", R.raw.song9p1);
             intent.putExtra("Mediaplayer2", R.raw.song9p2);
@@ -178,9 +175,9 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             startActivity(intent);
             finish();
         }
-//        if(id==R.id.points){
-//          item.setTitle("points: "+score.getInt("score",0));
-//        }
+       if(id==R.id.points){
+        item.setTitle("points: "+score.getInt("score",0));
+      }
         return true;
     }
     @Override
