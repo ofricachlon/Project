@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="#9B26AF"
+    android:background="#1A7DB3"
 
-    android:orientation="vertical"
-    tools:context=".Levels">
+    tools:context=".LevelsP2">
 
     <TableLayout
         android:id="@+id/tableLayout2"
-        android:layout_width="337dp"
+        android:layout_width="356dp"
 
 
-        android:layout_height="245dp"
+        android:layout_height="247dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -30,26 +28,26 @@
                 android:id="@+id/btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffff00"
+                android:backgroundTint="#E87F5E"
                 android:padding="30sp"
-                android:text=" song1" />
+                android:text=" song10" />
 
             <Button
                 android:id="@+id/btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:backgroundTint="#ffff00"
+                android:backgroundTint="#E87F5E"
                 android:padding="30sp"
-                android:text=" song2" />
+                android:text=" song11" />
 
             <Button
                 android:id="@+id/btn3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffff00"
+                android:backgroundTint="#E87F5E"
                 android:padding="30sp"
-                android:text=" song3" />
+                android:text=" song12" />
         </TableRow>
 
         <TableRow
@@ -60,25 +58,25 @@
                 android:id="@+id/btn4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffff00"
+                android:backgroundTint="#E87F5E"
                 android:padding="30sp"
-                android:text="song4" />
+                android:text="song13" />
 
             <Button
                 android:id="@+id/btn5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffff00"
+                android:backgroundTint="#E87F5E"
                 android:padding="30sp"
-                android:text="song5" />
+                android:text="song14" />
 
             <Button
                 android:id="@+id/btn6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffff00"
+                android:backgroundTint="#E87F5E"
                 android:padding="30sp"
-                android:text="song6" />
+                android:text="song15" />
         </TableRow>
 
         <TableRow
@@ -89,53 +87,54 @@
                 android:id="@+id/btn7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffff00"
+                android:backgroundTint="#E87F5E"
                 android:padding="30sp"
-                android:text="song7" />
+                android:text="song16" />
 
             <Button
                 android:id="@+id/btn8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffff00"
+                android:backgroundTint="#E87F5E"
                 android:padding="30sp"
-                android:text="song8" />
+                android:text="song17" />
 
             <Button
                 android:id="@+id/btn9"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:backgroundTint="#ffff00"
+                android:backgroundTint="#E87F5E"
                 android:padding="30sp"
-                android:text="song9" />
+                android:text="song18" />
         </TableRow>
 
     </TableLayout>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="309dp"
-        android:layout_height="85dp"
+        android:layout_width="304dp"
+        android:layout_height="95dp"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51"
+        app:layout_constraintVertical_bias="0.469"
         app:srcCompat="@drawable/chooselevel" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="68dp"
-        android:layout_height="63dp"
+        android:layout_width="44dp"
+        android:layout_height="58dp"
         android:rotation="-15"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.904"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87"
+        app:layout_constraintVertical_bias="0.213"
         app:srcCompat="@drawable/unnamed" />
 
     <ImageView
@@ -144,55 +143,54 @@
         android:layout_height="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.753"
+        app:layout_constraintVertical_bias="0.774"
         app:srcCompat="@drawable/tav" />
 
     <Button
         android:id="@+id/ToPage2"
-        android:layout_width="76dp"
-        android:layout_height="55dp"
+        android:layout_width="56dp"
+        android:layout_height="49dp"
         android:background="@drawable/arrow_forward"
-        android:shadowColor="#000000"
-        sh
-        android:shadowRadius=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.907"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956" />
+        app:layout_constraintVertical_bias="0.774" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="228dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="48dp"
+        android:layout_height="67dp"
         android:shadowColor="#000000"
         android:shadowDx="10"
         android:shadowRadius="4"
-        android:text="היפ הופ ישראלי"
+        android:text="ישראלי ישן"
         android:textColor="#FFFFFF"
-        android:textSize="35dp"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.622" />
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="191dp"
-        android:layout_height="126dp"
-        android:scaleX="2.5"
-        app:layout_constraintBottom_toBottomOf="@+id/tableLayout2"
+        android:id="@+id/imageView5"
+        android:layout_width="106dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="88dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.202"
-        app:srcCompat="@drawable/hiphop" />
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
+        app:layout_constraintVertical_bias="0.36"
+        app:srcCompat="@drawable/israelflag" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,10 +18,12 @@ import android.widget.Toast;
 import java.io.Serializable;
 
 public class Levels extends AppCompatActivity implements View.OnClickListener {
-    Button[] btn = new Button[9];
+    private Button[] btn = new Button[9];
     SharedPreferences sp;
     SharedPreferences score;
     private MenuItem scoreview;
+    private Button nextpage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,8 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             btn[i].setOnClickListener(this);
 
         }
-
+        nextpage=findViewById(R.id.ToPage2);
+        nextpage.setOnClickListener(this);
 
         Intent intent=getIntent();
 
@@ -150,7 +153,11 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
             startActivity(intent);
             finish();
         }
+        if(view==nextpage){
+            Intent intent=new Intent(this,LevelsP2.class);
+            startActivity(intent);
 
+        }
 
     }
 
