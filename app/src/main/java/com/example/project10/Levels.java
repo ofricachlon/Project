@@ -153,7 +153,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         if(view==nextpage){
             Intent intent=new Intent(this,LevelsP2.class);
             startActivity(intent);
-
+            finish();
         }
 
     }

@@ -17,6 +17,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
     SharedPreferences sp;
     SharedPreferences score;
     private MenuItem scoreview;
+    private Button BacKTopage1;
 
 
     @Override
@@ -34,6 +35,8 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         btn[6] = findViewById(R.id.btn16);
         btn[7] = findViewById(R.id.btn17);
         btn[8] = findViewById(R.id.btn18);
+        BacKTopage1=findViewById(R.id.backTopP1);
+        BacKTopage1.setOnClickListener(this);
 
         for (int i = 0; i < btn.length; i++) {
             btn[i].setOnClickListener(this);
@@ -141,41 +144,46 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         }
         if(view==btn[5]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","חתולים");
+            intent.putExtra("SongName","מוכרת לי מפעם");
             intent.putExtra("NumLevel",15);
-            intent.putExtra("Mediaplayer1", R.raw.song6p1);
-            intent.putExtra("Mediaplayer2", R.raw.song6p2);
-            intent.putExtra("Mediaplayer3", R.raw.song6p3);
+            intent.putExtra("Mediaplayer1", R.raw.p2song6p1);
+            intent.putExtra("Mediaplayer2", R.raw.p2song6p2);
+            intent.putExtra("Mediaplayer3", R.raw.p2song6p3);
             startActivity(intent);
             finish();
         }
         if(view==btn[6]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","איידישע ראסטה מאן");
+            intent.putExtra("SongName","רוב השעות");
             intent.putExtra("NumLevel",16);
-            intent.putExtra("Mediaplayer1", R.raw.song7p1);
-            intent.putExtra("Mediaplayer2", R.raw.song7p2);
-            intent.putExtra("Mediaplayer3", R.raw.song7p3);
+            intent.putExtra("Mediaplayer1", R.raw.p2song7p1);
+            intent.putExtra("Mediaplayer2", R.raw.p2song7p2);
+            intent.putExtra("Mediaplayer3", R.raw.p2song7p3);
             startActivity(intent);
             finish();
         }
         if(view==btn[7]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","גלישה בסתר");
+            intent.putExtra("SongName","ירח");
             intent.putExtra("NumLevel",17);
-            intent.putExtra("Mediaplayer1", R.raw.song8p1);
-            intent.putExtra("Mediaplayer2", R.raw.song8p2);
-            intent.putExtra("Mediaplayer3", R.raw.song8p3);
+            intent.putExtra("Mediaplayer1", R.raw.p2song8p1);
+            intent.putExtra("Mediaplayer2", R.raw.p2song8p2);
+            intent.putExtra("Mediaplayer3", R.raw.p2song8p3);
             startActivity(intent);
             finish();
         }
         if(view==btn[8]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","להתעורר");
+            intent.putExtra("SongName","עברתי רק כדי לראות");
             intent.putExtra("NumLevel",18);
-            intent.putExtra("Mediaplayer1", R.raw.song9p1);
-            intent.putExtra("Mediaplayer2", R.raw.song9p2);
-            intent.putExtra("Mediaplayer3", R.raw.song9p3);
+            intent.putExtra("Mediaplayer1", R.raw.p2song9p1);
+            intent.putExtra("Mediaplayer2", R.raw.p2song9p2);
+            intent.putExtra("Mediaplayer3", R.raw.p2song9p3);
+            startActivity(intent);
+            finish();
+        }
+        if(view==BacKTopage1){
+            Intent intent=new Intent(this,Levels.class);
             startActivity(intent);
             finish();
         }

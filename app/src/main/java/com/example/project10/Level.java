@@ -217,6 +217,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
             else{
                 Toast toast = Toast.makeText(this, "Sorry thats wrong", Toast.LENGTH_LONG);
                 toast.show();
+                answer.setText(null);
                 times++;
             }
        }
@@ -260,7 +261,6 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
 
                     }
                 }).setNegativeButton("No, i dont need that", null).show();
-
             }
             else{
                 Toast toast=Toast.makeText(this,"You do not have enough points to do this",Toast.LENGTH_LONG);
