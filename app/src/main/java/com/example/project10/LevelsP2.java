@@ -91,51 +91,51 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View view) {
         if(view==btn[0]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","פרפר");
+            intent.putExtra("SongName","מכה אפורה");
             intent.putExtra("NumLevel",10);
-            intent.putExtra("Mediaplayer1", R.raw.song1p1);
-            intent.putExtra("Mediaplayer2", R.raw.song1p2);
-            intent.putExtra("Mediaplayer3", R.raw.song1p3);
+            intent.putExtra("Mediaplayer1", R.raw.p2song1p1);
+            intent.putExtra("Mediaplayer2", R.raw.p2song1p2);
+            intent.putExtra("Mediaplayer3", R.raw.p2song1p3);
             startActivity(intent);
             finish();
         }
         if(view==btn[1]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","בין הבודדים");
+            intent.putExtra("SongName","אני שוב מתאהב");
             intent.putExtra("NumLevel",11);
-            intent.putExtra("Mediaplayer1", R.raw.song2p1);
-            intent.putExtra("Mediaplayer2", R.raw.song2p2);
-            intent.putExtra("Mediaplayer3", R.raw.song2p3);
+            intent.putExtra("Mediaplayer1", R.raw.p2song2p1);
+            intent.putExtra("Mediaplayer2", R.raw.p2song2p2);
+            intent.putExtra("Mediaplayer3", R.raw.p2song2p3);
             startActivity(intent);
             finish();
         }
         if(view==btn[2]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","עולם משוגע");
+            intent.putExtra("SongName","מי אוהב אותך יותר ממני");
             intent.putExtra("NumLevel",12);
-            intent.putExtra("Mediaplayer1", R.raw.song3p1);
-            intent.putExtra("Mediaplayer2", R.raw.song3p2);
-            intent.putExtra("Mediaplayer3", R.raw.song3p3);
+            intent.putExtra("Mediaplayer1", R.raw.p2song3p1);
+            intent.putExtra("Mediaplayer2", R.raw.p2song3p2);
+            intent.putExtra("Mediaplayer3", R.raw.p2song3p3);
             startActivity(intent);
             finish();
         }
         if(view==btn[3]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","רוק 30");
+            intent.putExtra("SongName","ימים של שקט");
             intent.putExtra("NumLevel",13);
-            intent.putExtra("Mediaplayer1", R.raw.song4p1);
-            intent.putExtra("Mediaplayer2", R.raw.song4p2);
-            intent.putExtra("Mediaplayer3", R.raw.song4p3);
+            intent.putExtra("Mediaplayer1", R.raw.p2song4p1);
+            intent.putExtra("Mediaplayer2", R.raw.p2song4p2);
+            intent.putExtra("Mediaplayer3", R.raw.p2song4p3);
             startActivity(intent);
             finish();
         }
         if(view==btn[4]){
             Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","מקס");
+            intent.putExtra("SongName","פסק זמן");
             intent.putExtra("NumLevel",14);
-            intent.putExtra("Mediaplayer1", R.raw.song5p1);
-            intent.putExtra("Mediaplayer2", R.raw.song5p2);
-            intent.putExtra("Mediaplayer3", R.raw.song5p3);
+            intent.putExtra("Mediaplayer1", R.raw.p2song5p1);
+            intent.putExtra("Mediaplayer2", R.raw.p2song5p2);
+            intent.putExtra("Mediaplayer3", R.raw.p2song5p3);
             startActivity(intent);
             finish();
         }

@@ -93,9 +93,17 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
             }
         }
         if(back==view){
-            Intent intent=new Intent(this,Levels.class);
-            startActivity(intent);
-            finish();
+            if(NumLevel<=9){
+                Intent intent=new Intent(this,Levels.class);
+                startActivity(intent);
+                finish();
+            }
+            else {
+                Intent intent=new Intent(this,LevelsP2.class);
+                startActivity(intent);
+                finish();
+            }
+
         }
         if(Sharebtn==view){
             Intent intent=new Intent(Intent.ACTION_SEND);
