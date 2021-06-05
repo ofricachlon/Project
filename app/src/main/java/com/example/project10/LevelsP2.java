@@ -95,6 +95,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         if(view==btn[0]){
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","מכה אפורה");
+            intent.putExtra("ArtistName","מוניקה סקס");
             intent.putExtra("NumLevel",10);
             intent.putExtra("Mediaplayer1", R.raw.p2song1p1);
             intent.putExtra("Mediaplayer2", R.raw.p2song1p2);
@@ -105,6 +106,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         if(view==btn[1]){
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","אני שוב מתאהב");
+            intent.putExtra("ArtistName","גידי גוב");
             intent.putExtra("NumLevel",11);
             intent.putExtra("Mediaplayer1", R.raw.p2song2p1);
             intent.putExtra("Mediaplayer2", R.raw.p2song2p2);
@@ -115,6 +117,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         if(view==btn[2]){
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","מי אוהב אותך יותר ממני");
+            intent.putExtra("ArtistName","ארקדי דוכין");
             intent.putExtra("NumLevel",12);
             intent.putExtra("Mediaplayer1", R.raw.p2song3p1);
             intent.putExtra("Mediaplayer2", R.raw.p2song3p2);
@@ -125,6 +128,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         if(view==btn[3]){
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","ימים של שקט");
+            intent.putExtra("ArtistName","לולה");
             intent.putExtra("NumLevel",13);
             intent.putExtra("Mediaplayer1", R.raw.p2song4p1);
             intent.putExtra("Mediaplayer2", R.raw.p2song4p2);
@@ -135,6 +139,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         if(view==btn[4]){
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","פסק זמן");
+            intent.putExtra("ArtistName","אריק איינשטיין");
             intent.putExtra("NumLevel",14);
             intent.putExtra("Mediaplayer1", R.raw.p2song5p1);
             intent.putExtra("Mediaplayer2", R.raw.p2song5p2);
@@ -145,6 +150,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         if(view==btn[5]){
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","מוכרת לי מפעם");
+            intent.putExtra("ArtistName","דין דין אביב");
             intent.putExtra("NumLevel",15);
             intent.putExtra("Mediaplayer1", R.raw.p2song6p1);
             intent.putExtra("Mediaplayer2", R.raw.p2song6p2);
@@ -155,6 +161,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         if(view==btn[6]){
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","רוב השעות");
+            intent.putExtra("ArtistName","עידן רייכל");
             intent.putExtra("NumLevel",16);
             intent.putExtra("Mediaplayer1", R.raw.p2song7p1);
             intent.putExtra("Mediaplayer2", R.raw.p2song7p2);
@@ -165,6 +172,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         if(view==btn[7]){
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","ירח");
+            intent.putExtra("ArtistName","שלמה ארצי");
             intent.putExtra("NumLevel",17);
             intent.putExtra("Mediaplayer1", R.raw.p2song8p1);
             intent.putExtra("Mediaplayer2", R.raw.p2song8p2);
@@ -175,6 +183,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         if(view==btn[8]){
             Intent intent= new Intent(this,Level.class);
             intent.putExtra("SongName","עברתי רק כדי לראות");
+            intent.putExtra("ArtistName","ביצוע של: תומר יוסף ובן הנדלר");
             intent.putExtra("NumLevel",18);
             intent.putExtra("Mediaplayer1", R.raw.p2song9p1);
             intent.putExtra("Mediaplayer2", R.raw.p2song9p2);

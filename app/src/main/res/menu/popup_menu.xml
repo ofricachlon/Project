@@ -12,10 +12,17 @@
         android:orderInCategory="1"
         app:showAsAction="ifRoom"
         android:title="Song length word- 50" />
+
     <item
         android:id="@+id/Continuethesong"
+        android:orderInCategory="4"
+        app:showAsAction="ifRoom"
+        android:title="Continue more parts- 200"
+        />
+    <item
+        android:id="@+id/artistname"
         android:orderInCategory="3"
         app:showAsAction="ifRoom"
-        android:title="Continue more 3 sec- 200"
+        android:title="Artist name- 150"
         />
 </menu>

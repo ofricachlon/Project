@@ -39,6 +39,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
     private Button playP2;
     private Button playP3;
     private MenuItem scoreview;
+    private String artistname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         int sound2=bundle.getInt("Mediaplayer2");
         int sound3=bundle.getInt("Mediaplayer3");
 
+
         Player[0] = MediaPlayer.create(this, sound1);
         Player[1] = MediaPlayer.create(this, sound2);
         Player[2] = MediaPlayer.create(this, sound3);
@@ -77,6 +79,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         submit.setOnClickListener(this);
         back.setOnClickListener(this);
         SongName=intent.getStringExtra("SongName");
+        artistname=intent.getStringExtra("ArtistName");
         clues.setOnClickListener(this);
         Sharebtn.setOnClickListener(this);
         playP2.setOnClickListener(this);
@@ -311,6 +314,27 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
               }
 
             }
+        if (id==R.id.artistname){
+            if(score.getInt("score",0)>=150){
+                new AlertDialog.Builder(this).setMessage("The cost for this clue is 150").setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int id) {
+                        {
+                            clueshow.setText(artistname);
+                            sumpoints=score.getInt("score",0);
+                            SharedPreferences.Editor scoreedit = score.edit();
+                            scoreedit.putInt("score", sumpoints - 150);
+                            scoreedit.commit();
+                        }
+                    }
+                }).setNegativeButton("No, i dont need that", null).show();
+            }
+            else{
+                Toast toast=Toast.makeText(this,"You do not have enough points to do this",Toast.LENGTH_LONG);
+                toast.show();
+            }
+
+        }
 
 
 
