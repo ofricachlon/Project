@@ -200,10 +200,10 @@
         android:background="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toStartOf="@+id/ToPage3"
-        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintVertical_bias="0.573" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

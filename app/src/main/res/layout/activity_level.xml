@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEB3B"
+    android:background="@drawable/musicc"
     tools:context=".Level">
 
     <EditText
@@ -14,7 +14,7 @@
         android:layout_marginBottom="44dp"
         android:ems="10"
         android:hint="WHAT IS THIS SONG??"
-        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -33,16 +33,18 @@
 
     <Button
         android:id="@+id/playmusic"
-        android:layout_width="144dp"
-        android:layout_height="111dp"
+        android:layout_width="102dp"
+        android:layout_height="93dp"
         android:layout_marginBottom="144dp"
-        android:background="@drawable/ic_play"
+        android:background="@drawable/playy"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
         app:layout_constraintBottom_toTopOf="@+id/answer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.318"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948" />
+        app:layout_constraintVertical_bias="0.987" />
 
     <TextView
         android:id="@+id/textlevel"
@@ -50,6 +52,9 @@
         android:layout_height="88dp"
         android:text="Song: "
         android:textSize="55dp"
+        android:shadowRadius="20"
+        android:shadowColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/playmusic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -71,29 +76,32 @@
 
     <Button
         android:id="@+id/clues_popup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
         android:layout_marginBottom="20dp"
-        android:text="Need help?"
+        android:background="@drawable/lightsymbole"
         app:layout_constraintBottom_toTopOf="@+id/answer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playmusic"
-        app:layout_constraintVertical_bias="0.644" />
+        app:layout_constraintVertical_bias="0.958" />
 
     <TextView
         android:id="@+id/clues_textview"
         android:layout_width="210dp"
         android:layout_height="88dp"
+        android:shadowColor="#000000"
+        android:shadowRadius="7"
         android:text=""
+        android:textColor="#FFFFFF"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/answer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/clues_popup"
         app:layout_constraintTop_toBottomOf="@+id/playmusic"
-        app:layout_constraintVertical_bias="0.819" />
+        app:layout_constraintVertical_bias="0.644" />
 
     <Button
         android:id="@+id/shereBtn"
@@ -124,13 +132,15 @@
         android:id="@+id/Playpart3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="88dp"
         android:text="part 3"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/clues_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/playmusic"
         app:layout_constraintTop_toBottomOf="@+id/Playpart2"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintVertical_bias="0.548" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
