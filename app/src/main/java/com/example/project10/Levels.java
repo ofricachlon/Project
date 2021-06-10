@@ -19,6 +19,8 @@ import java.io.Serializable;
 
 public class Levels extends AppCompatActivity implements View.OnClickListener {
     private Button[] btn = new Button[9];
+    private Game game=new Game();
+    private Song[] songs=new Song[9];
     SharedPreferences sp;
     SharedPreferences score;
     private MenuItem scoreview;
@@ -29,6 +31,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
         sp=getSharedPreferences("level",0);
+        songs=game.getsongs(0);
         score=getSharedPreferences("score",0);
         btn[0] = findViewById(R.id.btn1);
         btn[1] = findViewById(R.id.btn2);
@@ -60,111 +63,46 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if(view==btn[0]){
-            Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","פרפר");
-            intent.putExtra("ArtistName","עטר מיינר");
-            intent.putExtra("NumLevel",1);
-            intent.putExtra("Mediaplayer1", R.raw.song1p1);
-            intent.putExtra("Mediaplayer2", R.raw.song1p2);
-            intent.putExtra("Mediaplayer3", R.raw.song1p3);
-            startActivity(intent);
-            finish();
-        }
-        if(view==btn[1]){
-            Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","בין הבודדים");
-            intent.putExtra("ArtistName","איזי & ג'ורדי");
-            intent.putExtra("NumLevel",2);
-            intent.putExtra("Mediaplayer1", R.raw.song2p1);
-            intent.putExtra("Mediaplayer2", R.raw.song2p2);
-            intent.putExtra("Mediaplayer3", R.raw.song2p3);
-            startActivity(intent);
-            finish();
-        }
-        if(view==btn[2]){
-            Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","עולם משוגע");
-            intent.putExtra("ArtistName","טונה ורביד פלוטניק");
-            intent.putExtra("NumLevel",3);
-            intent.putExtra("Mediaplayer1", R.raw.song3p1);
-            intent.putExtra("Mediaplayer2", R.raw.song3p2);
-            intent.putExtra("Mediaplayer3", R.raw.song3p3);
-            startActivity(intent);
-            finish();
-        }
-        if(view==btn[3]){
-            Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","רוק 30");
-            intent.putExtra("ArtistName","טונה");
-            intent.putExtra("NumLevel",4);
-            intent.putExtra("Mediaplayer1", R.raw.song4p1);
-            intent.putExtra("Mediaplayer2", R.raw.song4p2);
-            intent.putExtra("Mediaplayer3", R.raw.song4p3);
-            startActivity(intent);
-            finish();
-        }
-        if(view==btn[4]){
-            Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","מקס");
-            intent.putExtra("ArtistName","וייב איש");
-            intent.putExtra("NumLevel",5);
-            intent.putExtra("Mediaplayer1", R.raw.song5p1);
-            intent.putExtra("Mediaplayer2", R.raw.song5p2);
-            intent.putExtra("Mediaplayer3", R.raw.song5p3);
-            startActivity(intent);
-            finish();
-        }
-        if(view==btn[5]){
-            Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","חתולים");
-            intent.putExtra("ArtistName","ג'ימבו ג'יי ולהקת הספא&רביד פלוטניק");
-            intent.putExtra("NumLevel",6);
-            intent.putExtra("Mediaplayer1", R.raw.song6p1);
-            intent.putExtra("Mediaplayer2", R.raw.song6p2);
-            intent.putExtra("Mediaplayer3", R.raw.song6p3);
-            startActivity(intent);
-            finish();
-        }
-        if(view==btn[6]){
-            Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","איידישע ראסטה מאן");
-            intent.putExtra("ArtistName","רביד פלוטניק");
-            intent.putExtra("NumLevel",7);
-            intent.putExtra("Mediaplayer1", R.raw.song7p1);
-            intent.putExtra("Mediaplayer2", R.raw.song7p2);
-            intent.putExtra("Mediaplayer3", R.raw.song7p3);
-            startActivity(intent);
-            finish();
-        }
-        if(view==btn[7]){
-            Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","גלישה בסתר");
-            intent.putExtra("ArtistName","כהן & סוויסה");
-            intent.putExtra("NumLevel",8);
-            intent.putExtra("Mediaplayer1", R.raw.song8p1);
-            intent.putExtra("Mediaplayer2", R.raw.song8p2);
-            intent.putExtra("Mediaplayer3", R.raw.song8p3);
-            startActivity(intent);
-            finish();
-        }
-        if(view==btn[8]){
-            Intent intent= new Intent(this,Level.class);
-            intent.putExtra("SongName","להתעורר");
-            intent.putExtra("ArtistName","עטר מיינר");
-            intent.putExtra("NumLevel",9);
-            intent.putExtra("Mediaplayer1", R.raw.song9p1);
-            intent.putExtra("Mediaplayer2", R.raw.song9p2);
-            intent.putExtra("Mediaplayer3", R.raw.song9p3);
-            startActivity(intent);
-            finish();
-        }
+        Intent intent;
         if(view==nextpage){
-            Intent intent=new Intent(this,LevelsP2.class);
+            intent =new Intent(this,LevelsP2.class);
             startActivity(intent);
             finish();
         }
+        else {
+            int place=0;
+            if(view==btn[0]){
+                place=0;
+            }
+            else if (view==btn[1]){
+                place=1;
+            }
+            else if(view==btn[2])
+                place=2;
+            else if(view==btn[3])
+                place=3;
+            else if (view==btn[4])
+                place=4;
+            else if (view==btn[5]){
+                place=5;
+            }
+            else if(view==btn[6])
+                place=6;
+            else if(view==btn[7])
+                place=7;
+            else if (view==btn[8])
+                place=8;
 
+            intent= new Intent(this,Level.class);
+            intent.putExtra("SongName",songs[place].getSongname());
+            intent.putExtra("ArtistName",songs[place].getArtistname());
+            intent.putExtra("NumLevel",songs[place].getNumlevel());
+            intent.putExtra("Mediaplayer1", songs[place].getIdsong1());
+            intent.putExtra("Mediaplayer2", songs[place].getIdsong2());
+            intent.putExtra("Mediaplayer3", songs[place].getIdsong3());
+            startActivity(intent);
+            finish();
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
