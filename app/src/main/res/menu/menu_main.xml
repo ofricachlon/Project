@@ -10,8 +10,8 @@
         android:title="Help"
         app:showAsAction="always" />
     <item
-        android:id="@+id/stats"
-        android:title="Stats"
+        android:id="@+id/Shuffle"
+        android:title="Shuffle"
         android:icon="@drawable/stats_icon24"
         android:orderInCategory="99"
         app:showAsAction="always"

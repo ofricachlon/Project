@@ -20,9 +20,10 @@ import java.io.Serializable;
 public class Levels extends AppCompatActivity implements View.OnClickListener {
     private Button[] btn = new Button[9];
     private Game game=new Game();
-    private Song[] songs=new Song[9];
+    private Song[] songs=new Song[game.getCurrent()];
     SharedPreferences sp;
     SharedPreferences score;
+    SharedPreferences buildLevels;
     private MenuItem scoreview;
     private Button nextpage;
 
@@ -32,6 +33,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_levels);
         sp=getSharedPreferences("level",0);
         songs=game.getsongs(0);
+
         score=getSharedPreferences("score",0);
         btn[0] = findViewById(R.id.btn1);
         btn[1] = findViewById(R.id.btn2);
@@ -125,6 +127,9 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
        if(id==R.id.points){
         item.setTitle("points: "+score.getInt("score",0));
       }
+       if(id==R.id.Shuffle){
+           game.Shuffle(1);
+       }
         return true;
     }
     @Override

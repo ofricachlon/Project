@@ -279,25 +279,17 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
                         int countspace=0;
                         String s = "(";
                         if (score.getInt("score", 0) >= 50) {
-                            for (int i = 0; i < SongName.length(); i++) {
-                                if (SongName.charAt(i) == ' ') {
-                                    s += count + ",";
-                                    count = 0;
-                                }
-                                count++;
+                            String[] arr = SongName.split(" ");
+
+                            for (int i =0 ; i < arr.length; i ++) {
+                                s += arr[i].length();
+
+                                if (i < arr.length-1)
+                                    s += ",";
                             }
-                            if (count > 0) {
-                                s += count - 1;
-                            }
-                            for(int i=0; i<s.length();i++){
-                                if(s.charAt(i)==','){
-                                    countspace++;
-                                }
-                            }
-                            if (countspace==0){
-                                s="("+SongName.length();
-                            }
+
                             s += ")";
+
                             clueshow.setText(s);
                             sumpoints=score.getInt("score",0);
                             SharedPreferences.Editor scoreedit = score.edit();
