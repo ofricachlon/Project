@@ -152,17 +152,36 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         item.setTitle("points: "+score.getInt("score",0));
       }
        if(id==R.id.Shuffle){
-           songs=game.Shuffle(1);
-           SharedPreferences.Editor leveledit=buildLevels.edit();
-           Gson gson=new Gson();
-           String json=gson.toJson(songs);
-           leveledit.putString("songs",json);
-           leveledit.commit();
+
+           new AlertDialog.Builder(this)
+                   .setMessage("Are you sure you want to shuffle the songs?").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener()
+           {
+                       public void onClick(DialogInterface dialog, int id) {
+                           songs=game.Shuffle(1);
+                           SharedPreferences.Editor leveledit=buildLevels.edit();
+                           Gson gson=new Gson();
+                           String json=gson.toJson(songs);
+                           leveledit.putString("songs",json);
+                           leveledit.commit();
 
 
-           SharedPreferences.Editor shuffleedit=Asshuffeld.edit();
-           shuffleedit.putBoolean("AsShuffeld",true);
-           shuffleedit.commit();
+                           SharedPreferences.Editor shuffleedit=Asshuffeld.edit();
+                           shuffleedit.putBoolean("AsShuffeld",true);
+                           shuffleedit.commit();
+
+
+                           SharedPreferences.Editor editor=sp.edit();
+                           editor.clear().commit();
+                           int x=0;
+                            for (int i=0;i<btn.length;i++){
+                                x=i+1;
+                                if (btn[i].getText().equals("DONE!")){
+                                    btn[i].setText("SONG"+x);
+                                }
+                            }
+
+                       }
+                   }).setNegativeButton("No", null).show();
 
          /*  if(Asshuffeld.getBoolean("AsShuffeld",false)==true){
                leveledit=buildLevels.edit();

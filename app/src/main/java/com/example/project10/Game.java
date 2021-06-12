@@ -58,7 +58,6 @@ public class Game {
 
     public Song[] Shuffle(int page) {
         List<Integer> numbers = new ArrayList<Integer>();
-        Random rnd = new Random();
         AsShuffeld = true;
         int next=0;
         if (page <= 1) {
@@ -76,9 +75,9 @@ public class Game {
         }
         else {
             for (int i=0;i<current;i++){
-                next= rnd.nextInt(MAX);
+                next= getRandomInt(MAX);
                 while (numbers.contains(next)){
-                    next=rnd.nextInt(MAX);
+                    next=getRandomInt(MAX);
                 }
                 numbers.add(next);
                 israeliSongs[i]=israeliMagar[next];
