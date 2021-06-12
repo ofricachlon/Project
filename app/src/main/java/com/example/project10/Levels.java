@@ -27,8 +27,8 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
     private Song[] songs=new Song[game.getCurrent()];
     SharedPreferences sp;
     SharedPreferences score;
-    SharedPreferences buildLevels;
-    SharedPreferences Asshuffeld;
+    SharedPreferences buildLevelsp1;
+    SharedPreferences Asshuffeldp1;
     private MenuItem scoreview;
     private Button nextpage;
 
@@ -37,21 +37,16 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
         sp=getSharedPreferences("level",0);
-        Asshuffeld=getSharedPreferences("AsShuffeld",0);
-        buildLevels=getPreferences(MODE_PRIVATE);
-        if(!Asshuffeld.getBoolean("AsShuffeld",false)==true)
+        Asshuffeldp1=getSharedPreferences("AsShuffeldp1",0);
+        buildLevelsp1=getPreferences(MODE_PRIVATE);
+        if(!Asshuffeldp1.getBoolean("AsShuffeldp1",false)==true)
         {
             songs=game.getsongs(1);
-         /*   SharedPreferences.Editor leveledit=buildLevels.edit();
-            Gson gson=new Gson();
-            String json=gson.toJson(songs);
-            leveledit.putString("songs",json);
-            leveledit.commit();*/
         }
         else
         {
             Gson gson=new Gson();
-            String json=buildLevels.getString("songs","");
+            String json=buildLevelsp1.getString("songs","");
             songs=gson.fromJson(json,songs.getClass());
         }
 
@@ -154,19 +149,20 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
        if(id==R.id.Shuffle){
 
            new AlertDialog.Builder(this)
-                   .setMessage("Are you sure you want to shuffle the songs?").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                   .setMessage("\"Are you sure you want to shuffle all the songs?, warning: all the songs are will shuffle.\"").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener()
            {
                        public void onClick(DialogInterface dialog, int id) {
                            songs=game.Shuffle(1);
-                           SharedPreferences.Editor leveledit=buildLevels.edit();
+                           game.Shuffle(2);
+                           SharedPreferences.Editor leveledit=buildLevelsp1.edit();
                            Gson gson=new Gson();
                            String json=gson.toJson(songs);
                            leveledit.putString("songs",json);
                            leveledit.commit();
 
 
-                           SharedPreferences.Editor shuffleedit=Asshuffeld.edit();
-                           shuffleedit.putBoolean("AsShuffeld",true);
+                           SharedPreferences.Editor shuffleedit=Asshuffeldp1.edit();
+                           shuffleedit.putBoolean("AsShuffeldp1",true);
                            shuffleedit.commit();
 
 
@@ -182,11 +178,6 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
 
                        }
                    }).setNegativeButton("No", null).show();
-
-         /*  if(Asshuffeld.getBoolean("AsShuffeld",false)==true){
-               leveledit=buildLevels.edit();
-               leveledit.clear();
-           }*/
        }
         return true;
     }

@@ -10,6 +10,7 @@ public class Game {
     private Song[] hiphopsongs;
     private Song[] israeliSongs;
 
+
     private boolean AsShuffeld = false;
 
     private final int MAX = 9;//גודל מאגר השירים של האפליקציה

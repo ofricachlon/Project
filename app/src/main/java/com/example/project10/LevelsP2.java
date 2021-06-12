@@ -12,14 +12,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+
 public class LevelsP2 extends AppCompatActivity implements View.OnClickListener {
     private Button[] btn = new Button[9];
     private Game game=new Game();
     private Song[] songs=new Song[game.getCurrent()];
     SharedPreferences sp;
     SharedPreferences score;
+    SharedPreferences buildLevelsp2;
+    SharedPreferences Asshuffeldp2;
     private MenuItem scoreview;
     private Button BacKTopage1;
+
 
 
     @Override
@@ -28,6 +33,20 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_levels_p2);
         songs=game.getsongs(2);
         sp=getSharedPreferences("level",0);
+
+        Asshuffeldp2=getSharedPreferences("AsShuffeldp2",0);
+        buildLevelsp2=getPreferences(MODE_PRIVATE);
+        if(!Asshuffeldp2.getBoolean("AsShuffeldp2",false)==true)
+        {
+            songs=game.getsongs(2);
+        }
+        else
+        {
+            Gson gson=new Gson();
+            String json=buildLevelsp2.getString("songs","");
+            songs=gson.fromJson(json,songs.getClass());
+        }
+
         score=getSharedPreferences("score",0);
         btn[0] = findViewById(R.id.btn10);
         btn[1] = findViewById(R.id.btn11);
@@ -75,6 +94,37 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
             Intent intent=new Intent(this,settingsActivity.class);
             startActivity(intent);
             finish();
+        }
+        if(id==R.id.Shuffle){
+            new AlertDialog.Builder(this)
+                    .setMessage("Are you sure you want to shuffle all the songs?, warning: all the songs are will shuffle.").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener()
+            {
+                public void onClick(DialogInterface dialog, int id) {
+                    songs=game.Shuffle(1);
+                    SharedPreferences.Editor leveledit=buildLevelsp2.edit();
+                    Gson gson=new Gson();
+                    String json=gson.toJson(songs);
+                    leveledit.putString("songs",json);
+                    leveledit.commit();
+
+
+                    SharedPreferences.Editor shuffleedit=Asshuffeldp2.edit();
+                    shuffleedit.putBoolean("AsShuffeldp2",true);
+                    shuffleedit.commit();
+
+
+                    SharedPreferences.Editor editor=sp.edit();
+                    editor.clear().commit();
+                    int x=0;
+                    for (int i=0;i<btn.length;i++){
+                        x=i+10;
+                        if (btn[i].getText().equals("DONE!")){
+                            btn[i].setText("SONG"+x);
+                        }
+                    }
+
+                }
+            }).setNegativeButton("No", null).show();
         }
 //        if(id==R.id.points){
 //          item.setTitle("points: "+score.getInt("score",0));

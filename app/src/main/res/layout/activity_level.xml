@@ -79,7 +79,7 @@
         android:layout_width="92dp"
         android:layout_height="92dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/lightsymbole"
+        android:background="@drawable/help"
         app:layout_constraintBottom_toTopOf="@+id/answer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -89,8 +89,8 @@
 
     <TextView
         android:id="@+id/clues_textview"
-        android:layout_width="210dp"
-        android:layout_height="88dp"
+        android:layout_width="228dp"
+        android:layout_height="98dp"
         android:shadowColor="#000000"
         android:shadowRadius="7"
         android:text=""

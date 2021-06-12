@@ -334,9 +334,6 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
         }
 
 
-
-
-
         if(id==R.id.Continuethesong)
         {
             findViewById(R.id.Playpart2).setVisibility(View.VISIBLE);
