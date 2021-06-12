@@ -100,7 +100,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
                     .setMessage("Are you sure you want to shuffle all the songs?, warning: all the songs are will shuffle.").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener()
             {
                 public void onClick(DialogInterface dialog, int id) {
-                    songs=game.Shuffle(1);
+                    songs=game.Shuffle(2);
                     SharedPreferences.Editor leveledit=buildLevelsp2.edit();
                     Gson gson=new Gson();
                     String json=gson.toJson(songs);
@@ -126,9 +126,7 @@ public class LevelsP2 extends AppCompatActivity implements View.OnClickListener 
                 }
             }).setNegativeButton("No", null).show();
         }
-//        if(id==R.id.points){
-//          item.setTitle("points: "+score.getInt("score",0));
-//        }
+
         return true;
     }
     @Override

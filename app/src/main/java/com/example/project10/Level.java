@@ -280,8 +280,6 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
                 new AlertDialog.Builder(this).setMessage("The cost for this clue is 50").setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener()
                 {
                     public void onClick(DialogInterface dialog, int id) {
-                        int count = 0;
-                        int countspace=0;
                         String s = "(";
                         if (score.getInt("score", 0) >= 50) {
                             String[] arr = SongName.split(" ");
@@ -291,6 +289,7 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
 
                                 if (i < arr.length-1)
                                     s += ",";
+
                             }
 
                             s += ")";

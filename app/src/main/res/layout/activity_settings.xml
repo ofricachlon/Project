@@ -34,15 +34,16 @@
 
     <TextView
         android:id="@+id/horaot"
-        android:layout_width="262dp"
-        android:layout_height="298dp"
+        android:layout_width="244dp"
+        android:layout_height="266dp"
         android:layout_marginBottom="120dp"
-        android:text="תפעילו את הנגו מוזיקה ורשמו את שם השיר בתיבה"
+        android:text="תפעילו את הנגן מוזיקה ורשמו את שם השיר בתיבה. ככל שתצליחו לזהות את השיר במספר קטן יותר של נסיונות תקבלו יותר נקודות. כאשר אתם מסיימים את השלבים או שבא לכם לנסות שלבים אחרים לחצו על כפתור ה shuffle שבmenu. "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/howtoplaybtn" />
+        app:layout_constraintTop_toBottomOf="@+id/howtoplaybtn"
+        app:layout_constraintVertical_bias="0.75" />
 
     <Button
         android:id="@+id/Sheresettings"

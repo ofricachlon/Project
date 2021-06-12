@@ -15,7 +15,6 @@ public class Game {
 
     private final int MAX = 9;//גודל מאגר השירים של האפליקציה
     private final int current = 9;//מספר השירים שניתן לשחק איתם
-    private final int HUGE_NUM=123123;
     public Game() {
         hiphopMagar = new Song[MAX];
         hiphopMagar[0] = new Song("פרפר", "עטר מיינר", 1, R.raw.song1p1, R.raw.song1p2, R.raw.song1p3);
@@ -82,7 +81,7 @@ public class Game {
                 }
                 numbers.add(next);
                 israeliSongs[i]=israeliMagar[next];
-                israeliSongs[i].setNumlevel(i+1);
+                israeliSongs[i].setNumlevel(i+10);
             }
             return israeliSongs;
         }

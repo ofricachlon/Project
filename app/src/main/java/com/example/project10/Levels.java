@@ -149,7 +149,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
        if(id==R.id.Shuffle){
 
            new AlertDialog.Builder(this)
-                   .setMessage("\"Are you sure you want to shuffle all the songs?, warning: all the songs are will shuffle.\"").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                   .setMessage("Are you sure you want to shuffle all the songs? warning: all the songs are will shuffle.").setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener()
            {
                        public void onClick(DialogInterface dialog, int id) {
                            songs=game.Shuffle(1);
