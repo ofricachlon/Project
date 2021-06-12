@@ -96,6 +96,11 @@ public class Level extends AppCompatActivity implements View.OnClickListener, Po
             }
         }
         if(back==view){
+            if(Player[0].isPlaying()||Player[1].isPlaying()||Player[2].isPlaying()){
+                Player[0].stop();
+                Player[1].stop();
+                Player[2].stop();
+            }
             if(NumLevel<=9){
                 Intent intent=new Intent(this,Levels.class);
                 startActivity(intent);

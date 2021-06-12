@@ -12,11 +12,11 @@ public class Game {
 
     private boolean AsShuffeld = false;
 
-    private final int max = 9;//גודל מאגר השירים של האפליקציה
+    private final int MAX = 9;//גודל מאגר השירים של האפליקציה
     private final int current = 9;//מספר השירים שניתן לשחק איתם
-
+    private final int HUGE_NUM=123123;
     public Game() {
-        hiphopMagar = new Song[max];
+        hiphopMagar = new Song[MAX];
         hiphopMagar[0] = new Song("פרפר", "עטר מיינר", 1, R.raw.song1p1, R.raw.song1p2, R.raw.song1p3);
         hiphopMagar[1] = new Song("בין הבודדים", "איזי & ג'ורדי", 2, R.raw.song2p1, R.raw.song2p2, R.raw.song2p3);
         hiphopMagar[2] = new Song("עולם משוגע", "טונה & רביד פלוטניק", 3, R.raw.song3p1, R.raw.song3p2, R.raw.song3p3);
@@ -26,7 +26,7 @@ public class Game {
         hiphopMagar[6] = new Song("איידישע ראסטה מאן", "רביד פלוטניק", 7, R.raw.song7p1, R.raw.song7p2, R.raw.song7p3);
         hiphopMagar[7] = new Song("גלישה בסתר", "כהן & סוויסה", 8, R.raw.song8p1, R.raw.song8p2, R.raw.song8p3);
         hiphopMagar[8] = new Song("להתעורר", "עטר מיינר", 9, R.raw.song9p1, R.raw.song9p2, R.raw.song9p3);
-        israeliMagar = new Song[max];
+        israeliMagar = new Song[MAX];
 
         israeliMagar[0] = new Song("מכה אפורה", "מוניקה סקס", 10, R.raw.p2song1p1, R.raw.p2song1p2, R.raw.p2song1p3);
         israeliMagar[1] = new Song("אני שוב מתאהב", "גידי גוב", 11, R.raw.p2song2p1, R.raw.p2song2p2, R.raw.p2song2p3);
@@ -40,10 +40,11 @@ public class Game {
 
         hiphopsongs = new Song[current];
         israeliSongs = new Song[current];
-        //if(!AsShuffeld){
-        for (int i = 0; i < current; i++) {
-            hiphopsongs[i] = hiphopMagar[i];
-            israeliSongs[i] = israeliMagar[i];
+        if (!AsShuffeld) {
+            for (int i = 0; i < current; i++) {
+                hiphopsongs[i] = hiphopMagar[i];
+                israeliSongs[i] = israeliMagar[i];
+            }
         }
     }
 
@@ -59,17 +60,36 @@ public class Game {
         List<Integer> numbers = new ArrayList<Integer>();
         Random rnd = new Random();
         AsShuffeld = true;
-        int next;
-        for (int i=0;i<current;i++){
-            next= rnd.nextInt(max);
-            while (numbers.contains(next)){
-                next=rnd.nextInt(max);
+        int next=0;
+        if (page <= 1) {
+            for (int i = 0; i < current; i++) {
+                next = getRandomInt(MAX);
+                while (numbers.contains(next)) {
+                    next = getRandomInt(MAX);
+                }
+                numbers.add(next);
+                hiphopsongs[i] = hiphopMagar[next];
+                hiphopsongs[i].setNumlevel(i + 1);
+
             }
-            numbers.add(next);
-            hiphopsongs[i]=hiphopMagar[next];
-            hiphopsongs[i].setNumlevel(i+1);
+            return hiphopsongs;
         }
-        return hiphopsongs;
+        else {
+            for (int i=0;i<current;i++){
+                next= rnd.nextInt(MAX);
+                while (numbers.contains(next)){
+                    next=rnd.nextInt(MAX);
+                }
+                numbers.add(next);
+                israeliSongs[i]=israeliMagar[next];
+                israeliSongs[i].setNumlevel(i+1);
+            }
+            return israeliSongs;
+        }
+    }
+
+    public int getRandomInt(int max){
+        return (int) Math.floor(Math.random()*max);
     }
 
     public int getCurrent() {

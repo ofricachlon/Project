@@ -3,6 +3,7 @@ package com.example.project10;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,7 +16,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.io.Serializable;
+
 
 public class Levels extends AppCompatActivity implements View.OnClickListener {
     private Button[] btn = new Button[9];
@@ -24,6 +28,7 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
     SharedPreferences sp;
     SharedPreferences score;
     SharedPreferences buildLevels;
+    SharedPreferences Asshuffeld;
     private MenuItem scoreview;
     private Button nextpage;
 
@@ -32,7 +37,26 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
         sp=getSharedPreferences("level",0);
-        songs=game.getsongs(0);
+        Asshuffeld=getSharedPreferences("AsShuffeld",0);
+        buildLevels=getPreferences(MODE_PRIVATE);
+        if(!Asshuffeld.getBoolean("AsShuffeld",false)==true)
+        {
+            songs=game.getsongs(1);
+         /*   SharedPreferences.Editor leveledit=buildLevels.edit();
+            Gson gson=new Gson();
+            String json=gson.toJson(songs);
+            leveledit.putString("songs",json);
+            leveledit.commit();*/
+        }
+        else
+        {
+            Gson gson=new Gson();
+            String json=buildLevels.getString("songs","");
+            songs=gson.fromJson(json,songs.getClass());
+        }
+
+
+
 
         score=getSharedPreferences("score",0);
         btn[0] = findViewById(R.id.btn1);
@@ -128,7 +152,22 @@ public class Levels extends AppCompatActivity implements View.OnClickListener {
         item.setTitle("points: "+score.getInt("score",0));
       }
        if(id==R.id.Shuffle){
-           game.Shuffle(1);
+           songs=game.Shuffle(1);
+           SharedPreferences.Editor leveledit=buildLevels.edit();
+           Gson gson=new Gson();
+           String json=gson.toJson(songs);
+           leveledit.putString("songs",json);
+           leveledit.commit();
+
+
+           SharedPreferences.Editor shuffleedit=Asshuffeld.edit();
+           shuffleedit.putBoolean("AsShuffeld",true);
+           shuffleedit.commit();
+
+         /*  if(Asshuffeld.getBoolean("AsShuffeld",false)==true){
+               leveledit=buildLevels.edit();
+               leveledit.clear();
+           }*/
        }
         return true;
     }

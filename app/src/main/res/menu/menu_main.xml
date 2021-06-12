@@ -12,7 +12,7 @@
     <item
         android:id="@+id/Shuffle"
         android:title="Shuffle"
-        android:icon="@drawable/stats_icon24"
+        android:icon="@drawable/refresh_24"
         android:orderInCategory="99"
         app:showAsAction="always"
         />
